@@ -1,0 +1,119 @@
+
+def is_permutation(s1, s2):
+  if len(s1) != len(s2):
+    return False 
+  for c in s1:
+    if c in s2:
+      s2=s2.replace(c, "")
+  if len(s2)> 0:
+    return False
+  return True
+
+is_permutation("cow", "woc")
+ 
+
+    
+
+
+
+def is_urilify(s):
+  url=""
+  for i in range (len(s)-1):
+    if s[i]==" ":
+      url += "%20"
+    else:
+      url=url+s[i]
+  return url 
+
+print(is_urilify(" is "))
+
+def is_palindrome(s):
+  s=s.replace(" ", "")
+  s=s.lower()
+  return s==s[::-1]
+
+s="saeeas"
+is_palindrome(s)
+
+def one_way(s1, s2):
+  if abs(len (s1) - len(s2))>2:
+    return False 
+  if len(s1)<len(s2):
+    x=s1
+    s1=s2
+    s2=s1
+  for c in s1:
+    if c in s2:
+      s2=s2.replace(c, "")
+  if len(s)>2: return False
+  else: return True
+
+
+def is_anagram(s1, s2):
+  s1=s1.replace(" ", "")
+  s2=s2.replace(" ", "")
+  s1=s1.lower
+  s2=s2.lower
+  alphabet="qwertyuiopasdfghjklzxcvbnm"
+  dic1=dict.fromkeys(list(alphabet), 0 )
+  dic2=dict.fromkeys(list(alphabet), 0 )
+
+  for i in range(len(s1)):
+        dic1[s1[i]]+=1
+        dic2[s2[i]]+=1
+  
+
+  return dic1==dic2
+
+s1="saeed"
+s2="maman"
+is_anagram(s1, s2)
+
+    
+
+
+ke=["a","b","c"]
+val=[1,2,3]
+
+newdic1={k:v for k , v in zip(ke, val)}
+
+print(newdic1)
+
+def stringcompress(s1):
+  count=1
+  strnew=""
+  for i in range(len(s1)-1):
+    if s1[i]==s1[i+1]:
+      count+=1
+    else:
+      strnew=strnew+s1[i]+str(count)
+      count=1
+  strnew=strnew+s1[i]+str(count)
+  if len(s1) <=len("strnew"):
+    strnew=s1
+  print(strnew)
+
+s1="aabbbsssddd"
+stringcompress(s1)
+
+#Fibonacci
+
+
+def is_fibonacci(n, memo):
+  memo[0]=0
+  memo[1]=1
+  
+  if n <2:
+    return memo[n]
+  
+  else:
+    memo[n]=is_fibonacci(n-1, memo)+is_fibonacci(n-2,memo)
+  return memo[n]
+  
+
+
+
+is_fibonacci(10, {})
+
+
+
